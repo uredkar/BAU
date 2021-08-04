@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(5e07728c-24bb-4417-9248-58adc5ef8bff), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to C:\sources\bau\scala\scala3\bauscala3\target\scala-3.0.1\classes ...[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 7 s, completed Aug 4, 2021 10:05:16 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
