@@ -1,0 +1,15 @@
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\rmdupdir.exe
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\rmdupdir.deps.json
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\rmdupdir.runtimeconfig.json
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\rmdupdir.dll
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\ref\rmdupdir.dll
+C:\sources\bau\c#\rmdupdir\bin\Debug\net6.0\rmdupdir.pdb
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.csproj.AssemblyReference.cache
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.GeneratedMSBuildEditorConfig.editorconfig
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.AssemblyInfoInputs.cache
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.AssemblyInfo.cs
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.csproj.CoreCompileInputs.cache
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.dll
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\ref\rmdupdir.dll
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.pdb
+C:\sources\bau\c#\rmdupdir\obj\Debug\net6.0\rmdupdir.genruntimeconfig.cache

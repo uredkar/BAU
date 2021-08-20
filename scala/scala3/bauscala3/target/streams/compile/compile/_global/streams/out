@@ -1,0 +1,6 @@
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E006] Not Found Error: C:\sources\bau\scala\scala3\bauscala3\src\main\scala\Main.scala:15:16 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m15 |[0m  greeterMain ! SayHello([31m"Charles"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m   |                [31m^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |                Not found: SayHello[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
