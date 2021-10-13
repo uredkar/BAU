@@ -13,17 +13,35 @@ library("tidyverse")
 library(optionstrat)
 library(readxl)
 library(ES)
+library(tidyquant)
+library(DT)
+library(FinCal) 
+library(formattable)
+data(edhec)
+data(managers)
+mean.geometric(edhec[,"Funds of Funds"])
+mean.stderr(edhec[,"Funds of Funds"])
+mean.UCL(edhec[,"Funds of Funds"])
+mean.LCL(edhec[,"Funds of Funds"])
+mean.geometric(managers[, "SP500 TR", drop=FALSE])
+ActivePremium(managers[, "HAM1", drop=FALSE], managers[, "SP500 TR", drop=FALSE])
 
 current_dir = dirname(rstudioapi::getSourceEditorContext()$path)
 current_dir 
 setwd(current_dir)
 df = read.csv("sp500yearly.txt")
+df$sp500 = df$sp500/100
+mean.geometric(df$sp500)
+mean.stderr(df$sp500)
+mean.UCL(df$sp500)
+mean.LCL(df$sp500)
+
 plot(df$date,df$sp500)
 plot(df$sp500,type='l',lwd=5)
 hist(df$sp500)
 plot(density(df$sp500))
 var(df$sp500/100)
-ES
+
 plot(density(sample(df$sp500,10)/100))
 plot(density(sample(df$sp500,10)))
 initial_capital = 1000
