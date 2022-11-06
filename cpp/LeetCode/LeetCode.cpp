@@ -9,4 +9,5 @@ int main()
     //AddTwoNumbers s;
     //LongestSubstringWithoutRepeatingChars c;
     MedianSortedArray m;
+    MedianSortedArrayPartitioned mp;
 }

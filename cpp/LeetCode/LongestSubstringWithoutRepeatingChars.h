@@ -70,7 +70,7 @@ public:
    
 
 
-    void find_longestSubString(std::string& s, int i,int& max_length) {
+    void find_longestSubString(std::string& s, int i,size_t & max_length) {
         
         std::string unique_string;
         for (auto& ch : s.substr(i))
@@ -93,9 +93,9 @@ public:
         }
     }
 
-    int lengthOfLongestSubstring(std::string s) {
+    size_t lengthOfLongestSubstring(std::string s) {
         
-        int max_length = 0;
+        size_t max_length = 0;
         std::string longest_substring;
         std::string s1 = s;
         

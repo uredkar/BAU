@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -31,8 +32,8 @@ public:
         _ASSERT(median == 2.5);
     }
 
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-
+    virtual double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        cout << "\noriginal findMedianSortedArrays";
         vector<int> num = nums1;
         num.insert(num.end(),nums2.begin(), nums2.end());
         sort(num.begin(), num.end());
@@ -51,3 +52,37 @@ public:
     }
 };
 
+class MedianSortedArrayPartitioned : public MedianSortedArray {
+public:    
+    MedianSortedArrayPartitioned()
+    {
+        case1(); // uses parents case1
+        case2(); // uses parents case2
+
+    }
+    // web
+    // overwrites parent for actual function
+    virtual double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        cout << "partial sort from web";
+        nums1.insert(nums1.end(), nums2.begin(), nums2.end());
+
+        auto length = nums1.size();
+        auto middle_ind = length / 2;
+        // why sort the whole vectory when you can do partial sort
+        std::partial_sort(nums1.begin(),
+            nums1.begin() + middle_ind + 1,
+            nums1.end(),
+            std::less<int>{});
+
+        auto middle = nums1[middle_ind];
+
+        if (length % 2 == 0)
+        {
+            auto middle1 = nums1[middle_ind - 1];
+            return static_cast<double>(middle1 + middle) / 2.0F;
+        }
+
+        return static_cast<double>(middle);
+
+    }
+};
