@@ -2,10 +2,11 @@
 //
 #include "AddTwoNumbers.h"
 #include "LongestSubstringWithoutRepeatingChars.h"
-
+#include "MedianSortedArray.h"
 int main()
 {
     //uncomment to run
     //AddTwoNumbers s;
-    LongestSubstringWithoutRepeatingChars c;
+    //LongestSubstringWithoutRepeatingChars c;
+    MedianSortedArray m;
 }

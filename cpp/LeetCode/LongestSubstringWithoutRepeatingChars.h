@@ -53,8 +53,24 @@ public:
         auto longest_length = lengthOfLongestSubstring("yfsrsrpzuya");
         _ASSERT(longest_length == 7);
     }
-    
-    void find_longestSubString(std::string s, int i,int& max_length) {
+    /* from other web
+    int lengthOfLongestSubstring(std::string s) {
+        std::vector<int> dict(256, -1);
+        int maxLen = 0, start = -1;
+        for (int i = 0; i != s.length(); i++) {
+            if (dict[s[i]] > start)
+                start = dict[s[i]];
+            dict[s[i]] = i;
+            maxLen = std::max(maxLen, i - start);
+        }
+        return maxLen;
+    }
+    */
+
+   
+
+
+    void find_longestSubString(std::string& s, int i,int& max_length) {
         
         std::string unique_string;
         for (auto& ch : s.substr(i))

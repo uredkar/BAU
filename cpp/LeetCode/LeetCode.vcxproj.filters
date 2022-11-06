@@ -24,12 +24,18 @@
     <ClCompile Include="LongestSubstringWithoutRepeatingChars.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MedianSortedArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoNumbers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LongestSubstringWithoutRepeatingChars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MedianSortedArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
