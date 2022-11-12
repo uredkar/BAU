@@ -3,11 +3,13 @@
 #include "AddTwoNumbers.h"
 #include "LongestSubstringWithoutRepeatingChars.h"
 #include "MedianSortedArray.h"
+#include "LongestPalindrome.h"
 int main()
 {
     //uncomment to run
     //AddTwoNumbers s;
     //LongestSubstringWithoutRepeatingChars c;
-    MedianSortedArray m;
-    MedianSortedArrayPartitioned mp;
+    //MedianSortedArray m;
+    //MedianSortedArrayPartitioned mp;
+    LongestPalindrome lpal;
 }

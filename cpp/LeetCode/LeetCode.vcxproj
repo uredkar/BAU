@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="AddTwoNumbers.cpp" />
     <ClCompile Include="LeetCode.cpp" />
+    <ClCompile Include="LongestPalindrome.cpp" />
     <ClCompile Include="LongestSubstringWithoutRepeatingChars.cpp" />
     <ClCompile Include="MedianSortedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoNumbers.h" />
+    <ClInclude Include="LongestPalindrome.h" />
     <ClInclude Include="LongestSubstringWithoutRepeatingChars.h" />
     <ClInclude Include="MedianSortedArray.h" />
   </ItemGroup>
