@@ -4,6 +4,9 @@
 #include "LongestSubstringWithoutRepeatingChars.h"
 #include "MedianSortedArray.h"
 #include "LongestPalindrome.h"
+#include "RegularExpressionMatching.h"
+#include "MergeKSortedLists.h"
+
 int main()
 {
     //uncomment to run
@@ -11,5 +14,9 @@ int main()
     //LongestSubstringWithoutRepeatingChars c;
     //MedianSortedArray m;
     //MedianSortedArrayPartitioned mp;
-    LongestPalindrome lpal;
+    //LongestPalindrome lpal;
+    //RegularExpressionMatching rex;
+    //MergeKSortedLists mks; // call test method to test
+    MergeKSortedLists_PriorityQ mks_priorityQ;
+    mks_priorityQ.test();
 }

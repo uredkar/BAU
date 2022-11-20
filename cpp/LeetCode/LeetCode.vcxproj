@@ -132,12 +132,16 @@
     <ClCompile Include="LongestPalindrome.cpp" />
     <ClCompile Include="LongestSubstringWithoutRepeatingChars.cpp" />
     <ClCompile Include="MedianSortedArray.cpp" />
+    <ClCompile Include="MergeKSortedLists.cpp" />
+    <ClCompile Include="RegularExpressionMatching.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoNumbers.h" />
     <ClInclude Include="LongestPalindrome.h" />
     <ClInclude Include="LongestSubstringWithoutRepeatingChars.h" />
     <ClInclude Include="MedianSortedArray.h" />
+    <ClInclude Include="MergeKSortedLists.h" />
+    <ClInclude Include="RegularExpressionMatching.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

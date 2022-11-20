@@ -10,9 +10,12 @@ class MedianSortedArray
 public:
     MedianSortedArray()
     {
-        case1();
-        case2();
         
+    }
+
+    virtual void test() {
+        case1(); // uses parents case1
+        case2(); // uses parents case2
     }
     void case1()
     {
@@ -56,9 +59,12 @@ class MedianSortedArrayPartitioned : public MedianSortedArray {
 public:    
     MedianSortedArrayPartitioned()
     {
+       
+
+    }
+    virtual void test() override {
         case1(); // uses parents case1
         case2(); // uses parents case2
-
     }
     // web
     // overwrites parent for actual function

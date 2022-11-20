@@ -97,10 +97,10 @@ public:
             radii[center] = 2 * radius;
             center = center + 1; // go to the next center
         }
-        int longest_palindrome_ds = *max_element(radii.begin(),radii.end());
-        int longest_palindrome_s = (longest_palindrome_ds-1)/2;
-        int longest_palindrome_center = distance(radii.begin(), max_element(radii.begin(), radii.end()));
-        int longest_plaindrom_radius = radii[longest_palindrome_center]/2;
+        auto longest_palindrome_ds = *max_element(radii.begin(),radii.end());
+        auto longest_palindrome_s = (longest_palindrome_ds-1)/2;
+        auto longest_palindrome_center = distance(radii.begin(), max_element(radii.begin(), radii.end()));
+        auto longest_plaindrom_radius = radii[longest_palindrome_center]/2;
         //cout << "Index of max element: " << distance(radii.begin(), max_element(radii.begin(), radii.end())) << endl;
         //cout << "\nstart " << radii[longest_palindrome_ds] - longest_palindrome_ds / 2;
         string longest_ds = ds.substr(longest_palindrome_center - longest_plaindrom_radius, longest_plaindrom_radius*2);

@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#ifndef LIST_NODE
+#define LIST_NODE
 struct ListNode {
     int val;
     ListNode* next;
@@ -11,6 +13,9 @@ struct ListNode {
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 
 };
+#endif
+
+
 
 class AddTwoNumbers {
 public:
