@@ -6,7 +6,7 @@
 #include "LongestPalindrome.h"
 #include "RegularExpressionMatching.h"
 #include "MergeKSortedLists.h"
-
+#include "Sudoku.h"
 int main()
 {
     //uncomment to run
@@ -17,6 +17,9 @@ int main()
     //LongestPalindrome lpal;
     //RegularExpressionMatching rex;
     //MergeKSortedLists mks; // call test method to test
-    MergeKSortedLists_PriorityQ mks_priorityQ;
-    mks_priorityQ.test();
+
+    //MergeKSortedLists_PriorityQ mks_priorityQ;
+    //mks_priorityQ.test();
+    cout << __cplusplus;
+    Sudoku sudoko;
 }

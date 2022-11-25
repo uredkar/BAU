@@ -36,6 +36,9 @@
     <ClCompile Include="MergeKSortedLists.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sudoku.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoNumbers.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MergeKSortedLists.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sudoku.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
