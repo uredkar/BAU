@@ -7,6 +7,7 @@
 #include "RegularExpressionMatching.h"
 #include "MergeKSortedLists.h"
 #include "Sudoku.h"
+#include "NQueens.h"
 int main()
 {
     //uncomment to run
@@ -20,6 +21,9 @@ int main()
 
     //MergeKSortedLists_PriorityQ mks_priorityQ;
     //mks_priorityQ.test();
-    cout << __cplusplus;
-    Sudoku sudoko;
+    //Sudoku s;
+    NQueensOnMyOwn q0; // this is not optimal at all
+    NQueens q1; // improved  when copied valid approach and removed all junk maps :-(
+    NQueensAS q2; // found on leet code
+    
 }

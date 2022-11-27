@@ -134,6 +134,7 @@
     <ClCompile Include="LongestSubstringWithoutRepeatingChars.cpp" />
     <ClCompile Include="MedianSortedArray.cpp" />
     <ClCompile Include="MergeKSortedLists.cpp" />
+    <ClCompile Include="NQueens.cpp" />
     <ClCompile Include="RegularExpressionMatching.cpp" />
     <ClCompile Include="Sudoku.cpp" />
   </ItemGroup>
@@ -143,6 +144,7 @@
     <ClInclude Include="LongestSubstringWithoutRepeatingChars.h" />
     <ClInclude Include="MedianSortedArray.h" />
     <ClInclude Include="MergeKSortedLists.h" />
+    <ClInclude Include="NQueens.h" />
     <ClInclude Include="RegularExpressionMatching.h" />
     <ClInclude Include="Sudoku.h" />
   </ItemGroup>
