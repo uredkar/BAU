@@ -77,7 +77,8 @@ public:
         
         while(justified.size() < maxWidth)
         {
-            justified.push_back('|');
+            //justified.push_back('|');
+            justified.push_back(' ');
         }
         return justified;
 
@@ -88,13 +89,16 @@ public:
         int length = s.length();
         bool found = false;
         int prev_start = start;
-        while (length > 2 && justified[length - 1] == '|') { // && justified[length - 2] == '|') { // last char  is |
+        //while (length > 2 && justified[length - 1] == '|') { 
+        while (length > 2 && justified[length - 1] == ' ') {
             //cout << "\nlast char is |";
             for (int i = start+1; i < length; i++) {
-                if (justified[i] != '|' && justified[i - 1] == '|')
+                //if (justified[i] != '|' && justified[i - 1] == '|')
+                if (justified[i] != ' ' && justified[i - 1] == ' ')
                 {
                     found = true;
-                    justified.insert(i, "|");
+                    //justified.insert(i, "|");
+                    justified.insert(i, " ");
                     justified.pop_back();
                     
                     start = i + 1;
@@ -130,12 +134,14 @@ public:
                 total_length += word.size(); // default spacing
                 current_line.append(word);
                 total_length += 1;
-                current_line.append("|");
+                //current_line.append("|");
+                current_line.append(" ");
             }
             else {
                 justified.push_back(current_line.substr(0,current_line.size() - 1)); // remove last | 
                 //justified.push_back(current_line);
-                current_line = word + "|";
+                //current_line = word + "|";
+                current_line = word + " ";
                 total_length = word.size() + 1; // default spacing
             }
             
@@ -150,14 +156,14 @@ public:
         vector<string> result;
         for (auto s : justified) {
             length--;
-            cout << "\ninput " << s;
+            //cout << "\ninput " << s;
             auto sendwithblanks = addBlanksAtEndOfLine(s, maxWidth);
             auto j = sendwithblanks;
             if (length >= 1) {
                 j = redistributeBlanks(sendwithblanks, 0);
             }
             //cout << "\nbefore " << j;
-            replace(j.begin(), j.end(), '|', ' ');
+            //replace(j.begin(), j.end(), '|', ' ');
             //cout << "\nafter " << j;
             result.push_back(j);
         }
@@ -167,4 +173,35 @@ public:
     }
 };
 
- 
+// from web
+class TextJustification2 {
+public:
+    vector<string> fullJustify(vector<string>& words, int maxWidth) {
+        vector<string> res;
+        if (maxWidth == 0)
+            return { "" };
+
+        int i = 0, j = 0;
+        while (j != words.size()) {
+            int len = -1;
+            while (j < words.size() && len + words[j].size() + 1 <= maxWidth)
+                len += words[j++].size() + 1;
+            int space = maxWidth - len + j - i - 1;
+            int k = i;
+            while (space) {
+                words[k++] += " ";
+                space--;
+                if (j != words.size() && (k == j - 1 || k == j)) k = i;
+                if (j == words.size() && k == j) k = j - 1;
+            }
+
+            string line = "";
+            for (int l = i; l < j; l++)
+                line += words[l];
+            res.push_back(line);
+            i = j;
+        }
+
+        return res;
+    }
+};
