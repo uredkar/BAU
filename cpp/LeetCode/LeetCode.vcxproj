@@ -135,8 +135,10 @@
     <ClCompile Include="MedianSortedArray.cpp" />
     <ClCompile Include="MergeKSortedLists.cpp" />
     <ClCompile Include="NQueens.cpp" />
+    <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="RegularExpressionMatching.cpp" />
     <ClCompile Include="Sudoku.cpp" />
+    <ClCompile Include="TextJustification.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTwoNumbers.h" />
@@ -145,8 +147,10 @@
     <ClInclude Include="MedianSortedArray.h" />
     <ClInclude Include="MergeKSortedLists.h" />
     <ClInclude Include="NQueens.h" />
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="RegularExpressionMatching.h" />
     <ClInclude Include="Sudoku.h" />
+    <ClInclude Include="TextJustification.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
