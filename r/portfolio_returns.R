@@ -5,6 +5,7 @@ library(PerformanceAnalytics)
 library(RColorBrewer)
 library(plotly)
 library(rugarch)
+library(quantmod)
 number_of_trading_days = 252
 stock.sim = function(sigma, ndays = 90, S0 = 100, mu = 0.05) {
   N = rnorm(ndays)
@@ -117,10 +118,12 @@ compare_price <- data.frame(exotice_price = exo.price, vanilla_price = van.price
                             Price_gap = Price_gap)
 knitr::kable(compare_price)
 normalise_series <- function(xdat) xdat / coredata(xdat)[1]
+
+library(quantmod)
 data  <- getSymbols(c("SPY", "TAIL","SWAN","BND"),  from="2017-06-01")
 
-
-
+head(SPY)
+tail(SPY)
 ?plot.xts
 tail(SPY$SPY.Adjusted)
 mytheme <- chart_theme()
@@ -132,6 +135,8 @@ add_TA(normalise_series(Cl(BND)) - 1, on = 1, col = "blue", lty =2)
 
 prices <- merge(Ad(SPY), Ad(TAIL),Ad(SWAN), Ad(BND))
 ret = na.omit(Return.calculate(prices))
+head(ret)
+plot(ret)
 par(mfrow=c(2,2))
 acf(ret, main="Return ACF");
 pacf(ret, main="Return PACF");
@@ -233,10 +238,11 @@ r8020tailBond = Return.portfolio(ret,weights=c(0.14,0.03,0.03,0.80),geometric = 
 
 mul_rets <- merge(r8020, r8020tail1,r8020tail2, r8020tailBond)
 head(mul_rets)
-#plot(mul_rets)
+plot(mul_rets)
 chart.CumReturns(mul_rets,wealth.index = TRUE,
                  lty=c(3,3,4,1),
                  col=c("red","blue","black","green"))
+
 
 dd = rbind(maxDrawdown(ret,weights=c(0.93,0.0,0.06,0.01), geometric = TRUE),
            maxDrawdown(ret,weights=c(0.93,0.03,0.03,0.01), geometric = TRUE),
@@ -294,3 +300,4 @@ fit = ugarchfit(spec, sp500ret[1:1000, , drop = FALSE], solver = 'hybrid')
 
 spec = getspec(fit)
 setfixed(spec) < - as.list(coef(fit))
+
