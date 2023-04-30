@@ -1,7 +1,7 @@
 package learnscala3
 
 import java.math.BigInteger
-
+import scala.collection.immutable.HashMap
 def factorial_java(x: BigInteger): BigInteger =
     if x == BigInteger.ZERO then
         BigInteger.ONE
@@ -30,10 +30,15 @@ def javaScalaComp =
         println(f"\nName >>$name%s<< has upper case >>$nameHasUC%b<<")
     )
 
-def funtional_predicate_checking = 
+def fn_predicate_checking = 
     val p: Int => Boolean = _ % 2 == 0
     val q: Int => Boolean = _ < 0
     val s = List(0,-1,-2,-3,-5, 1,2,3,4,5)
     val rs = s.exists(p) || s.exists(q) == s.exists(x => p(x) || q(x)) 
     println(f"\nfuntional_predicate_checking : Result $rs%b")
 
+def fn_noimplementation(x: String) = ???
+
+def decl_map = 
+    val x1 = new HashMap[Int, String]()
+    val x2: Map[Int, String] = new HashMap() 
