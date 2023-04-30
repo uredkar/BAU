@@ -9,6 +9,7 @@ def Main(args: String*): Unit =
   println(msg)
   map_ex
   javaScalaComp
+  funtional_predicate_checking
 
 def msg = "I was compiled by Scala 3. :)"
 

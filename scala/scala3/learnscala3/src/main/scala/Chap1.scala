@@ -29,10 +29,11 @@ def javaScalaComp =
         val nameHasUC = name.exists(_.isUpper)
         println(f"\nName >>$name%s<< has upper case >>$nameHasUC%b<<")
     )
-    
+
+def funtional_predicate_checking = 
     val p: Int => Boolean = _ % 2 == 0
     val q: Int => Boolean = _ < 0
     val s = List(0,-1,-2,-3,-5, 1,2,3,4,5)
     val rs = s.exists(p) || s.exists(q) == s.exists(x => p(x) || q(x)) 
-    println(f"Result $rs%b")
+    println(f"\nfuntional_predicate_checking : Result $rs%b")
 
