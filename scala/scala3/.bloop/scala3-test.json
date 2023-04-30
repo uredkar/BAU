@@ -1,0 +1,154 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "scala3-test",
+        "directory": "C:\\sources\\bau\\scala\\scala3",
+        "workspaceDir": "C:\\sources\\bau\\scala\\scala3",
+        "sources": [
+            "C:\\sources\\bau\\scala\\scala3\\src\\test\\scala",
+            "C:\\sources\\bau\\scala\\scala3\\src\\test\\scala-2.12",
+            "C:\\sources\\bau\\scala\\scala3\\src\\test\\scala-2",
+            "C:\\sources\\bau\\scala\\scala3\\src\\test\\java",
+            "C:\\sources\\bau\\scala\\scala3\\target\\scala-2.12\\src_managed\\test"
+        ],
+        "dependencies": [
+            "scala3"
+        ],
+        "classpath": [
+            "C:\\sources\\bau\\scala\\scala3\\.bloop\\scala3\\scala-2.12\\classes",
+            "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar"
+        ],
+        "out": "C:\\sources\\bau\\scala\\scala3\\.bloop\\scala3",
+        "classesDir": "C:\\sources\\bau\\scala\\scala3\\.bloop\\scala3\\scala-2.12\\test-classes",
+        "resources": [
+            "C:\\sources\\bau\\scala\\scala3\\src\\test\\resources",
+            "C:\\sources\\bau\\scala\\scala3\\target\\scala-2.12\\resource_managed\\test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.12.13",
+            "options": [
+                
+            ],
+            "jars": [
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar",
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\jansi.jar",
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\jline.jar",
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-compiler.jar",
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-reflect.jar",
+                "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-xml_2.12.jar"
+            ],
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Java\\jdk1.8.0_151\\jre",
+                "options": [
+                    "-Duser.dir=C:\\sources\\bau\\scala\\scala3"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\unmes\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.12.13\\scala-library-2.12.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.13",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\unmes\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.12.13\\scala-library-2.12.13-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}
