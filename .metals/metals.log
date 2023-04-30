@@ -5850,3 +5850,40 @@ file%3A%2F%2F%2FC%3A%2Fsources%2Fbau%2Fscala%2Fscala3%2Fbauscala3%2Fsrc%2Fmain%2
 	at scala.meta.internal.semanticdb.scalac.TextDocumentOps$XtensionCompilationUnitDocument.toTextDocument(TextDocumentOps.scala:201)
 	at scala.meta.internal.pc.SemanticdbTextDocumentProvider.textDocument(SemanticdbTextDocumentProvider.scala:51)
 
+2023.04.30 15:07:57 INFO  Started: Metals version 0.11.12 in workspace 'C:\sources\BAU' for client Visual Studio Code 1.77.3.
+2023.04.30 15:07:57 INFO  Deleting old database format C:\sources\BAU\.metals\metals.h2.db
+Apr 30, 2023 3:07:57 PM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+Apr 30, 2023 3:07:57 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+Apr 30, 2023 3:07:57 PM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:C:\sources\BAU\.metals\metals (H2 2.1)
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.017s)
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": << Empty Schema >>
+Apr 30, 2023 3:08:01 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "1 - Create tables"
+Apr 30, 2023 3:08:02 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "2 - Server discovery"
+Apr 30, 2023 3:08:02 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+Apr 30, 2023 3:08:02 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+Apr 30, 2023 3:08:02 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.078s)
+2023.04.30 15:08:02 INFO  time: initialize in 4.88s
+2023.04.30 15:08:02 WARN  Build server is not auto-connectable.
+2023.04.30 15:08:02 WARN  no build tool detected in workspace 'C:\sources\BAU'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.30 15:08:02 WARN  no build target for: C:\sources\BAU\scala\scala3\learnscala3\src\main\scala\Main.scala
+2023.04.30 15:08:07 INFO  no build target found for C:\sources\BAU\scala\scala3\learnscala3\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.2.2
+2023.04.30 15:08:11 INFO  time: code lens generation in 7.22s
+2023.04.30 15:10:54 INFO  Shutting down server
+2023.04.30 15:10:54 INFO  shutting down Metals
+2023.04.30 15:10:54 INFO  Exiting server
