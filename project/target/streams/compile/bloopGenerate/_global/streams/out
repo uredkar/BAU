@@ -1,0 +1,4 @@
+[debug] [bau-build] Classpath dependencies List()
+[debug] [bau-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'bau-build' to 'C:\sources\BAU\project\.bloop\bau-build.json'
+[success] Generated .bloop\bau-build.json
