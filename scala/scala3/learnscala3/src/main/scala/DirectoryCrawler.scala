@@ -1,32 +1,57 @@
 package com.komsonandmarch.directorycrawler
 import java.nio.file.{AccessDeniedException,FileVisitResult,SimpleFileVisitor, Files, Path, Paths}
 import java.nio.file.attribute.{BasicFileAttributes, DosFileAttributes, FileAttribute, FileTime}
-
+import java.util.regex.Pattern;
 import java.io.{IOException}
 import java.nio.file.FileVisitOption
 import java.nio.file.attribute.PosixFilePermission
 import java.nio.file.attribute.PosixFilePermissions
+import scala.util.{Try, Success, Failure}
+import scala.util.CommandLineParser as CLP
+
+case class Config(
+  dirname: String,
+  filter: String
+)
 
 object cli {
-    def main(args: String*): Unit = {
+    def main(args: Array[String]): Unit = {
         println("Directory Crawler Main")
         println("---------------------------")
         args.foreach(arg => println(arg))
         println("---------------------------")
+        if (args.length < 2){
+            println("dir name is required as first parameter")
+            println("regex is required as second parameter")
+            println("example  run c:\fileswithtext .*\\.txt")
+        }
+        else {
+            val dirname = CLP.parseArgument[String](args, 0)
+            val pattern = CLP.parseArgument[String](args, 1)
+            println(s"dirname $dirname")
+            process_dir(dirname,pattern)
+        }
+    }
 
-        val dirPath: Path = Paths.get("c:/temp")
+    def process_dir(dirname:String,pattern:String) = {        
+        val dirPath: Path = Paths.get(dirname)
         val fileExtension: String = ".*"
         val perms = PosixFilePermissions.fromString("rwxr-x---")
         val options = java.util.EnumSet.of(FileVisitOption.FOLLOW_LINKS)
-        
+        //val patternCompiled = Pattern.compile(pattern); // Filter all files ending with ".txt"
+        val patternCompile = Pattern.compile(pattern)
         Files.walkFileTree(dirPath, options, Integer.MAX_VALUE, new SimpleFileVisitor[Path] {
+
         override def visitFile(filePath: Path, attrs: java.nio.file.attribute.BasicFileAttributes) = {
             try {
-                val fileAttrs = Files.readAttributes(filePath, classOf[DosFileAttributes])
-                if (!fileAttrs.isReadOnly) {
-                    println(filePath)
-                } else {
-                    println(s"Access denied to file $filePath: $fileAttrs")
+                
+                if (patternCompile.matcher(filePath.getFileName.toString).matches){
+                    val fileAttrs = Files.readAttributes(filePath, classOf[DosFileAttributes])
+                    if (!fileAttrs.isReadOnly) {
+                        println(filePath)
+                    } else {
+                        println(s"Access denied to file $filePath: $fileAttrs")
+                    }
                 }
     
             } catch {
