@@ -1,5 +1,5 @@
 package learnscala3
-
+import com.komsonandmarch.directorycrawler as dc
 
 
 
@@ -11,9 +11,9 @@ def Main(args: String*): Unit =
   args.foreach(println)
   println("Hello world!")
   println(msg)
-  
+  dc.cli.main(args: _*) // _* is required as args are a variable number of arguments
   //chap1
-  chap2
+  //chap2
   
 
 def msg = "I was compiled by Scala 3. :)"
