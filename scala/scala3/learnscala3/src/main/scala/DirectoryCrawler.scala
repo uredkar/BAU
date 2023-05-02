@@ -1,6 +1,8 @@
 package com.komsonandmarch.directorycrawler
 import java.nio.file.{AccessDeniedException,FileVisitResult,SimpleFileVisitor, Files, Path, Paths}
+
 import java.nio.file.attribute.{BasicFileAttributes, DosFileAttributes, FileAttribute, FileTime}
+import org.apache.commons.io.FilenameUtils
 import java.util.regex.Pattern;
 import java.io.{IOException}
 import java.nio.file.FileVisitOption
@@ -8,11 +10,13 @@ import java.nio.file.attribute.PosixFilePermission
 import java.nio.file.attribute.PosixFilePermissions
 import scala.util.{Try, Success, Failure}
 import scala.util.CommandLineParser as CLP
-
+import scala.collection.mutable.Map
 case class Config(
   dirname: String,
   filter: String
 )
+
+case class FileDetails(fileName:String, xsDirName: List[String])
 
 object cli {
     def main(args: Array[String]): Unit = {
@@ -40,18 +44,37 @@ object cli {
         val options = java.util.EnumSet.of(FileVisitOption.FOLLOW_LINKS)
         //val patternCompiled = Pattern.compile(pattern); // Filter all files ending with ".txt"
         val patternCompile = Pattern.compile(pattern)
-        Files.walkFileTree(dirPath, options, Integer.MAX_VALUE, new SimpleFileVisitor[Path] {
+        val hashMapFiles = Map[String,FileDetails]()
+
+        Files.walkFileTree(dirPath,  new SimpleFileVisitor[Path] {
+
 
         override def visitFile(filePath: Path, attrs: java.nio.file.attribute.BasicFileAttributes) = {
             try {
                 
                 if (patternCompile.matcher(filePath.getFileName.toString).matches){
                     val fileAttrs = Files.readAttributes(filePath, classOf[DosFileAttributes])
-                    if (!fileAttrs.isReadOnly) {
-                        println(filePath)
-                    } else {
-                        println(s"Access denied to file $filePath: $fileAttrs")
+                    val fileName = filePath.getFileName().toString()
+                    val dirName = filePath.getParent().toString()
+                    
+                    if (hashMapFiles.contains(fileName)) {
+                        
+
+                        //println(s"Duplicate $filePath,${filePath.getFileName().toString()},${filePath.getParent()},${FilenameUtils.getExtension(filePath.getFileName().toString())}")
+                        val existingDetails = hashMapFiles(fileName)
+                        val updatedDetails = existingDetails.copy(xsDirName = existingDetails.xsDirName ++ List(dirName) )
+                        hashMapFiles += (fileName -> updatedDetails)
+
                     }
+                    else {
+                            hashMapFiles += (fileName -> FileDetails(fileName,List(dirName)))
+                    }
+                    
+                    //if (!fileAttrs.isReadOnly) {
+                    
+                    //} else {
+                    //    println(s"Access denied to file $filePath: $fileAttrs")
+                    // }
                 }
     
             } catch {
@@ -73,5 +96,15 @@ object cli {
             FileVisitResult.CONTINUE
         }
         })
+
+        println("After Walking")
+        hashMapFiles.map(pair => {
+            
+            if (pair._2.xsDirName.length > 2) {
+                println(s"\n${pair._1},\n\tDir ${pair._2.xsDirName}")
+            }
+        
+        })
+
     }
 }    
