@@ -1,6 +1,6 @@
 package learnscala3
 import com.komsonandmarch.directorycrawler as dc
-
+import com.komsonandmarch.patternmatching as pm
 //To run using command line and outside sbt : scala3 .\target\scala-3.2.2\learnscala3_3-0.1.0-SNAPSHOT.jar
 object MyApp {
 @main
@@ -11,9 +11,10 @@ def Main(args: String*): Unit =
   args.foreach(println)
   println("Hello world!")
   println(msg)
-  dc.cli.docli(args.toArray) // _* is required as args are a variable number of arguments
+  //dc.cli.docli(args.toArray) // _* is required as args are a variable number of arguments
   //chap1
   //chap2
+  pm.testModel
 }  
 
 def msg = "I was compiled by Scala 3. :)"
