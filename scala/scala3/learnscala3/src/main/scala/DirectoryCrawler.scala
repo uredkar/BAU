@@ -11,15 +11,17 @@ import java.nio.file.attribute.PosixFilePermissions
 import scala.util.{Try, Success, Failure}
 import scala.util.CommandLineParser as CLP
 import scala.collection.mutable.Map
+import javax.activation.FileTypeMap
 case class Config(
   dirname: String,
   filter: String
 )
 
+
 case class FileDetails(fileName:String, xsDirName: List[String])
 
 object cli {
-    def main(args: Array[String]): Unit = {
+    def docli(args: Array[String]): Unit = {
         println("Directory Crawler Main")
         println("---------------------------")
         args.foreach(arg => println(arg))
@@ -51,7 +53,7 @@ object cli {
 
         override def visitFile(filePath: Path, attrs: java.nio.file.attribute.BasicFileAttributes) = {
             try {
-                
+                //println(filePath)
                 if (patternCompile.matcher(filePath.getFileName.toString).matches){
                     val fileAttrs = Files.readAttributes(filePath, classOf[DosFileAttributes])
                     val fileName = filePath.getFileName().toString()
@@ -60,7 +62,7 @@ object cli {
                     if (hashMapFiles.contains(fileName)) {
                         
 
-                        //println(s"Duplicate $filePath,${filePath.getFileName().toString()},${filePath.getParent()},${FilenameUtils.getExtension(filePath.getFileName().toString())}")
+                        println(s"Duplicate $filePath,${filePath.getFileName().toString()},${filePath.getParent()},${FilenameUtils.getExtension(filePath.getFileName().toString())}")
                         val existingDetails = hashMapFiles(fileName)
                         val updatedDetails = existingDetails.copy(xsDirName = existingDetails.xsDirName ++ List(dirName) )
                         hashMapFiles += (fileName -> updatedDetails)
@@ -97,10 +99,10 @@ object cli {
         }
         })
 
-        println("After Walking")
+        println("After Walking Today2")
         hashMapFiles.map(pair => {
             
-            if (pair._2.xsDirName.length > 2) {
+            if (pair._2.xsDirName.length > 0) {
                 println(s"\n${pair._1},\n\tDir ${pair._2.xsDirName}")
             }
         
