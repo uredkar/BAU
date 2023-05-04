@@ -10,7 +10,19 @@ trait Security {
   override def toString: String = s"$ticker @$price x $quantity (Value: $$${value})"
 }
 
-trait Bond extends Security {
+abstract class Bond(ticker: String, price: Double, quantity: Int, val couponRate: Double, val yearsToMaturity: Int) extends Security {
+  val value: Double = calculateValue()
+
+  def calculateValue(): Double = {
+    price * quantity * (couponRate / 100.0)
+  }
+
+  override def toString: String = {
+    s"$ticker @$price x $quantity ($couponRate% $yearsToMaturity years to maturity, Value: $$${value})"
+  }
+}
+
+trait Bond2 extends Security {
   
   def yearsToMaturity: Int
   def isCallable: Boolean
@@ -60,7 +72,7 @@ case class IndexFuture(ticker: String, expirationDate: LocalDate, price: Double,
   val contractSize = 50 // 1 future contract = 50 index points
 }
 
-sealed trait Option {
+sealed trait Option extends Security {
   def ticker: String
   def expirationDate: LocalDate
   def strikePrice: Double
@@ -70,12 +82,12 @@ sealed trait Option {
   def value: Double = price * quantity * 100 // 1 option contract = 100 options
 
 
-}
+} 
 
 trait SwapOption {
   def valueAtExpiration(price: Double): Double
 }
-case class CallOption(ticker: String, expirationDate: LocalDate, strikePrice: Double, price: Double, quantity: Int) extends Option {
+case class CallOption(ticker: String, expirationDate: LocalDate, strikePrice: Double,price: Double, quantity: Int) extends Option {
   val optionType = Call
 }
 
@@ -87,7 +99,28 @@ sealed trait OptionType
 case object Call extends OptionType
 case object Put extends OptionType
 
+case class CoveredCall(stock: Stock, callOption: CallOption) {
+  val costBasis: Double = stock.price * stock.quantity
+  val maxProfit: Double = callOption.price * stock.quantity
+  val maxLoss: Double = costBasis - callOption.price * stock.quantity
 
+  def valueAtExpiration(stockPrice: Double): Double = {
+    if (stockPrice >= callOption.strikePrice) {
+      callOption.strikePrice * stock.quantity + callOption.price * stock.quantity
+    } else {
+      stockPrice * stock.quantity + callOption.price * stock.quantity
+    }
+  }
+
+  override def toString: String = {
+    s"Covered call strategy on ${stock.ticker}:\n" +
+      s"  Stock price: ${stock.price}\n" +
+      s"  Call option: ${callOption.strikePrice} @ ${callOption.price}\n" +
+      s"  Cost basis: $costBasis\n" +
+      s"  Maximum profit: $maxProfit\n" +
+      s"  Maximum loss: $maxLoss"
+  }
+}
 
 case class SwapV(ticker: String, price: Double,quantity: Int, underlyingSecurity: Security, contractMultiplier: Double, expirationDate: String) extends Derivative {
   val value: Double = price * contractMultiplier
@@ -107,32 +140,23 @@ case class FixedRateBond(ticker: String, price: Double, quantity: Int, couponRat
   }
 }
 
-case class FloatingRateBond(
-  ticker: String,
-  price: Double,
-  quantity: Int,
-  currentRate: Double,
-  spread: Double,
-  isCallable: Boolean,
-  issueDate: LocalDate,
-  yearsToMaturity: Int
-) extends Bond {
-    val value: Double = calculateValue()
-    
-    private def calculateValue(): Double = {
-        if (isCallable) {
-        price * quantity * (currentRate + spread) * 0.9
-        } else {
-        price * quantity * (currentRate + spread)
-        }
-    }
+case class FloatingRateBond(ticker: String, price: Double, quantity: Int, spread: Double, index: String, startDate: LocalDate, 
+     override val yearsToMaturity: Int) extends Bond(ticker, price, quantity, 0, yearsToMaturity) {
+  private var currentRate: Double = getRate()
 
-    override def toString: String = {
-        val bondType = if (isCallable) "Callable" else "Non-Callable"
-        s"$ticker @$price x $quantity (Current Rate: $currentRate, Spread: $spread, $yearsToMaturity years to maturity, $bondType, Value: $$${value})"
-    }
+  def getRate(): Double = {
+    // implementation to get current rate based on the index and start date
+    0.0
+  }
+
+  override def calculateValue(): Double = {
+    price * quantity * ((currentRate + spread) / 100.0)
+  }
+
+  override def toString: String = {
+    s"$ticker @$price x $quantity (Floating Rate $index + $spread, $yearsToMaturity years to maturity, Value: $$${value})"
+  }
 }
-
 
 case class Swap(notional: Double, fixedRate: Double, floatingRateBond: FloatingRateBond) extends Security {
     override val price: Double = calculatePrice()
@@ -140,7 +164,7 @@ case class Swap(notional: Double, fixedRate: Double, floatingRateBond: FloatingR
     override val ticker: String = s"Swap(${floatingRateBond.ticker})"
     val value: Double = 0.0
     private def calculatePrice(): Double = {
-        notional * (fixedRate - floatingRateBond.currentRate) * floatingRateBond.yearsToMaturity
+        notional * (fixedRate - floatingRateBond.getRate()) * floatingRateBond.yearsToMaturity
     }
   
     override def toString: String = s"$ticker: Price: $price, Quantity: $quantity"
