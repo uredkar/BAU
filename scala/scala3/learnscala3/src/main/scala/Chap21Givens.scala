@@ -112,7 +112,47 @@ given orderingString: Ordering[String] with {
 }
 
 
-    
+trait Show[T]:
+  def show(t: T): String
+
+object Show:
+  // Define a given instance of Show for Int
+  given Show[Int] with
+    def show(t: Int) = s"Int($t)"
+
+  // Define a given instance of Show for String
+  given Show[String] with
+    def show(t: String) = s"String($t)"
+
+def printWithShow[T](t: T)(using s: Show[T]): Unit =
+  println(s.show(t))
+
+
+trait Printable[T] {
+  def print(value: T): Unit
+}
+
+extension [T](value: T) {
+  def printGiven(using printable: Printable[T]): Unit = printable.print(value)
+}
+
+given Printable[Int] with {
+  def print(value: Int): Unit = println(s"Printing int: $value")
+}
+
+given Printable[String] with {
+  def print(value: String): Unit = println(s"Printing string: $value")
+}
+
+// Define the extension method
+extension (str: String) def toTitleCase: String =
+  str.split("\\s+").map(_.capitalize).mkString(" ")
+
+// Define the given instance of the implicit conversion as a method
+given stringToTitleCaseConverter: Conversion[String, String] =
+  (str: String) => str.toTitleCase
+
+
 def Chap13Given = 
     import JillsPrefs.prompt
     Greeter.greet("Jill")    
@@ -152,3 +192,24 @@ def Chap13Given =
     println(sortedNums) // prints List(0, 1, 2, 3, 5, 8)
     println(sortedWords) // prints List(apple, banana, orange, pear)
 
+    printWithShow(42) // prints Int(42)
+    printWithShow("hello") // prints String(hello)
+
+    // Retrieve the Show instance for Int using summon
+    val showInt = summon[Show[Int]]
+    println(showInt.show(123)) // prints Int(123)
+
+    // Retrieve the Show instance for String using summon
+    val showString = summon[Show[String]]
+    println(showString.show("world")) // prints String(world)
+
+    val intVal = 42
+    intVal.printGiven // prints "Printing int: 42"
+
+    val strVal = "Hello, World!"
+    strVal.printGiven // prints "Printing string: Hello, World!"
+
+    // Use the toTitleCase method
+    val title = "the quick brown fox".toTitleCase
+    println(title)
+    // title: String = "The Quick Brown Fox
