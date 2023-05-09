@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-09T13:22:17.384Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="_MAvO4RCnqxu9j9hLq95" version="21.2.8" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-05-09T13:25:16.698Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="44P9YLJxHPwkRgP3SLSS" version="21.2.8" type="github" pages="3">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="BigPicture">
     <mxGraphModel dx="1434" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#003469" math="0" shadow="0">
       <root>
@@ -936,6 +936,12 @@
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-13" value="Patterns" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="325" y="706" width="120" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yJ7Cdj5BCcPyXbPByx2d-16" target="yJ7Cdj5BCcPyXbPByx2d-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yJ7Cdj5BCcPyXbPByx2d-16" target="yJ7Cdj5BCcPyXbPByx2d-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-16" value="Anti Pattern" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="615" y="406" width="120" height="80" as="geometry" />
         </mxCell>
@@ -1049,6 +1055,12 @@
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-81" value="Profiling" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="615" y="766" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-84" value="Module or Class&lt;br&gt;with Too Much Responsibility/Features" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="400" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-86" value="No Structure or Design&lt;br&gt;Difficult to Extend" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="190" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
