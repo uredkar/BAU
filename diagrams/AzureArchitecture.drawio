@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-09T13:29:38.920Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="bDC3o8Wg3VMCGTpzRBFy" version="21.2.8" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-05-09T13:29:54.919Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="j1185sEBb0uGmrgXHtZJ" version="21.2.8" type="github" pages="3">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="BigPicture">
     <mxGraphModel dx="1434" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#003469" math="0" shadow="0">
       <root>
@@ -1060,19 +1060,19 @@
           <mxGeometry x="391" y="777" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-73" value="Load&lt;br&gt;Balancing" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="481" y="607" width="120" height="80" as="geometry" />
+          <mxGeometry x="551" y="547" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-75" value="Scalable Data Storage&lt;br&gt;NoSQL,Lake" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="701" y="797" width="120" height="80" as="geometry" />
+          <mxGeometry x="820" y="840" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-77" value="Performance&lt;br&gt;Stress&lt;br&gt;Testing" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="581" y="907" width="120" height="80" as="geometry" />
+          <mxGeometry x="710" y="957" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-79" value="Efficient Code&lt;br&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="671" y="697" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-81" value="Profiling" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="541" y="827" width="120" height="80" as="geometry" />
+          <mxGeometry x="560" y="970" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-84" value="Module or Class&lt;br&gt;with Too Much Responsibility/Features" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="750" y="590" width="120" height="80" as="geometry" />
