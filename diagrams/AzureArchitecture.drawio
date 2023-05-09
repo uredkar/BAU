@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-09T14:43:57.598Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="zAQnHnEDT07gGzYmxGIP" version="21.2.8" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-05-09T17:34:09.880Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="hcuVki7sAcV0Q5aklxWr" version="21.2.8" type="github" pages="3">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="BigPicture">
     <mxGraphModel dx="1434" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#003469" math="0" shadow="0">
       <root>
@@ -829,8 +829,11 @@
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;noEdgeStyle=1;" edge="1" parent="1" source="yJ7Cdj5BCcPyXbPByx2d-2" target="yJ7Cdj5BCcPyXbPByx2d-104">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yJ7Cdj5BCcPyXbPByx2d-2" target="yJ7Cdj5BCcPyXbPByx2d-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-2" value="Architect" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="243" y="91" width="120" height="80" as="geometry" />
+          <mxGeometry x="243" y="110" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;noEdgeStyle=1;" edge="1" parent="1" source="yJ7Cdj5BCcPyXbPByx2d-4" target="yJ7Cdj5BCcPyXbPByx2d-69">
           <mxGeometry relative="1" as="geometry" />
@@ -1111,10 +1114,13 @@
           <mxGeometry x="123" y="-29" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-102" value="Tradeoff" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="53" y="71" width="120" height="80" as="geometry" />
+          <mxGeometry x="-30" y="-9" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-104" value="Breath&amp;nbsp;&lt;br&gt;of Knowledge" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="243" y="-129" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yJ7Cdj5BCcPyXbPByx2d-106" value="Must be Some what or more hands on but not a bottle neck to the dev team" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-70" y="110" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
