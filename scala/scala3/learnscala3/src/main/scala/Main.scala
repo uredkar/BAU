@@ -5,6 +5,8 @@ import com.komsonandmarch.patternmatching as pm
 import com.komsonandmarch.extension  as ex
 import com.komsonandmarch.typeclasses as tc
 import com.komsonandmarch.CsvParser as csv
+import com.komsonandmarch.doubleHash as doubleHash
+package com.komsonandmarch.spark as srk
 //To run using command line and outside sbt : scala3 .\target\scala-3.2.2\learnscala3_3-0.1.0-SNAPSHOT.jar
 object MyApp {
 @main
@@ -23,7 +25,9 @@ def Main(args: String*): Unit =
   //giv.Chap13Given
   //ex.Chap22
   //tc.Chap23
-  csv.parse
+  //csv.parse
+  //doubleHash.double_hashing
+  srk.MainSpark.run
 }  
 
 def msg = "I was compiled by Scala 3. :)"
