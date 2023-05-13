@@ -13,6 +13,9 @@ import scala.collection.mutable
 import scala.quoted.* // imports Quotes, Expr
 
 
+import scala.quoted._
+
+
 object PopulateSubMaps {
 inline def populateMap[T](from: T, map: mutable.Map[String, Any]): Unit = 
   ${ populateMapImpl('from, 'map) }
@@ -82,6 +85,10 @@ def dslsql = {
   useFunMacro()
 
   println("hello")
+  val r = myMacro("10+2")
+  println(r)
+  val px = power(10,2)
+  println(px)
 }
 
 

@@ -72,3 +72,43 @@ object PopulateMap {
     Expr.block(selects, '{ () })
   }
 }
+
+
+
+
+case class Table(name: String)
+
+case class Column(name: String)
+
+
+
+
+//given Quotes = scala.quoted.Reflection
+inline def myMacro(inline s: String): String = ${ myMacroImpl('s) }
+
+
+private def myMacroImpl(s: Expr[String])(using Quotes): Expr[String] = {
+   import scala.reflect._
+   val identExpr = s.value
+
+   // Return the string representation of the identifier
+   Expr(identExpr.get)
+}
+
+inline def power[Num](x: Num, inline n: Int)(using num: Numeric[Num]) =
+  ${ powerMacro('x, 'n)(using 'num) }
+
+def powerMacro[Num: Type](x: Expr[Num], n: Expr[Int])(using Expr[Numeric[Num]])(using Quotes): Expr[Num] =
+  powerCode(x, n.valueOrAbort)
+import math.Numeric.Implicits.infixNumericOps
+def powerCode[Num: Type](x: Expr[Num], n: Int)(using num: Expr[Numeric[Num]])(using Quotes): Expr[Num] =
+  if (n == 0) '{ $num.one }
+  else if (n % 2 == 0) '{
+    given Numeric[Num] = $num
+    val y = $x * $x
+    ${ powerCode('y, n / 2) }
+  }
+  else '{
+    given Numeric[Num] = $num
+    $x * ${ powerCode(x, n - 1) }
+  }  
