@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-15T13:15:32.954Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="onsa_Pqrt9zqh-tYFt4z" version="21.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-05-15T13:19:32.757Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="2K-9s1XcphOW3hDzN8LA" version="21.2.9" type="github" pages="4">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="BigPicture">
     <mxGraphModel dx="1290" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#003469" math="0" shadow="0">
       <root>
@@ -1048,16 +1048,16 @@
           <mxGeometry x="92" y="223" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-47" value="OWASP Top 10" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="192" y="-17" width="120" height="80" as="geometry" />
+          <mxGeometry x="252" y="-67" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-49" value="Authentication&lt;br&gt;Encryption&lt;br&gt;Control" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="262" y="213" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-51" value="Data Management&lt;br&gt;Backup&lt;br&gt;Recovery&lt;br&gt;Retention&lt;br&gt;Disposal" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" parent="1" vertex="1">
-          <mxGeometry x="102" y="-87" width="120" height="80" as="geometry" />
+          <mxGeometry x="52" y="-140" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-53" value="Coding Convention&lt;br&gt;Performance Benchmarks SLA&lt;br&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" parent="1" vertex="1">
-          <mxGeometry x="302" y="-97" width="120" height="80" as="geometry" />
+          <mxGeometry x="372" y="-147" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="yJ7Cdj5BCcPyXbPByx2d-55" value="Change Management&lt;br&gt;Version Control" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" parent="1" vertex="1">
           <mxGeometry x="42" y="63" width="120" height="80" as="geometry" />
