@@ -24,6 +24,7 @@ trait Query {
 
   def where(condition: String): Query
   def where(condition: (Query) => Boolean): Query 
+  def where(condition: (Table,Table) => Boolean): Query 
   def orderBy(column: String, ascending: Boolean = true): Query
 
   def limit(limit: Int): Query
@@ -31,6 +32,8 @@ trait Query {
   def fetch(): Seq[Row]
 
   def join(table: String, on: String): Query 
+
+  def table(name: String): Table
 }
 
 
@@ -75,6 +78,10 @@ override def select(columns: String*): Query = {
     ???
   }
 
+  override def where(condition: (Table,Table) => Boolean): Query = {
+    ???
+  }
+
   override def limit(limit: Int): Query = {
     ???
   }
@@ -82,6 +89,7 @@ override def select(columns: String*): Query = {
   override def orderBy(column: String, ascending: Boolean = true): Query = {
     ???
   }
+  override def table(name: String): Table = ???
 }
 
 object SqlDslImpl {
@@ -93,14 +101,70 @@ object SqlDslImpl {
 
 
 
+class DSL[A] {
+  private var filterConditions: List[A => Boolean] = List.empty
+
+  def addFilterCondition(condition: A => Boolean): Unit =
+    filterConditions = condition :: filterConditions
+
+  def applyFilter(collection: List[A]): List[A] =
+    collection.filter(item => filterConditions.forall(condition => condition(item)))
+}
+
+object DSL {
+  def apply[A](block: DSL[A] => Unit): DSL[A] = {
+    println("DSL Apply")
+    val dsl = new DSL[A]
+    block(dsl)
+    dsl
+  }
+}
+
+case class Product(name: String, price: Double)
+
+val products = List(
+  Product("Shirt", 29.99),
+  Product("Jeans", 49.99),
+  Product("Shoes", 79.99),
+  Product("Hat", 14.99)
+)
+
+case class Person(name: String, age: Int)
+
+val people = List(
+  Person("John", 25),
+  Person("Alice", 30),
+  Person("Bob", 35),
+  Person("Jane", 40)
+)
+
+val dsl_person = DSL[Person] { dsl =>
+  println("dsl person creating...")
+  dsl.addFilterCondition((person: Person) => person.age >= 30)
+  dsl.addFilterCondition((person: Person) => person.name.startsWith("J"))
+}
+
+val dsl_product = DSL[Product] { dsl =>
+  println("dsl product creating...")
+  dsl.addFilterCondition(_.price <= 50)
+  dsl.addFilterCondition(_.name.contains("Shirt"))
+}
 
 def dslsql = {
+    println("in dslsql 1")
+    val filteredPeople = dsl_person.applyFilter(people)
+    println(filteredPeople)
+    println("in dslsql 2")
+    val filteredProducts = dsl_product.applyFilter(products)
+    println(filteredProducts)
+
     println("dsl sql")
+    val dept = Table("dept")
     val emp_schema = Schema(List(Column("Col1",MyType.MyNumber),Column("Col2",MyType.MyString)))
 
     val employee = Table("Employee")
     val employee_with_schema = Table("Employee")(emp_schema)
-
+    /*
     
     val query = SqlDslImpl().
     select("*")
@@ -109,9 +173,11 @@ def dslsql = {
     .from(employee_with_schema)
     .join("address", "person_id = id")
     .where("age > 18")
-    .where(x => 10 > 20)
-
+    .where((employee,dept) => if employee.name == "xxx" then true else false)
+    //.where(x => x.employee.id  > 20 && 21 < 20)
     query.fetch().foreach(row => println(row))
+    */
+    
 
 }
 
