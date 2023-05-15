@@ -1,101 +1,117 @@
 package com.komsonandmarch.dslsql
 
-import com.komsonandmarch.macros._
-import scala.collection.mutable
-//import scala.quoted._
-//import scala.compiletime.{ summonFrom, erasedValue, summonInline, constValue }
-//import scala.deriving._
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.Try
+import dotty.tools.dotc.core.Types.Type
 
-//import scala.tasty.inspector.*
-//import scala.tasty._
-//learning from https://github.dev/deusaquilus/derivation_examples/
-
-import scala.quoted.* // imports Quotes, Expr
-
-
-import scala.quoted._
-
-
-object PopulateSubMaps {
-inline def populateMap[T](from: T, map: mutable.Map[String, Any]): Unit = 
-  ${ populateMapImpl('from, 'map) }
-
-inline def recurseGetMap[T](from: T): mutable.Map[String, Any] =
-  val map = mutable.Map[String, Any]()
-  populateMap(from, map)
-  map
-
-def populateMapImpl[T: Type](from: Expr[T], map: Expr[mutable.Map[String, Any]])(using qctx: Quotes): Expr[Unit] =
-  import qctx.reflect._
-  val cls = TypeRepr.of[T].classSymbol.get
-  val selects = 
-    cls.caseFields.map { f =>
-      val field = from.asTerm.select(f)
-      val value =
-        // if you do just this: from.asTerm.select(f).asExpr inner maps will be empty because they don't know what type to infer on
-        if (field.tpe <:< TypeRepr.of[Product])
-          field.tpe.asType match
-            case '[tpe] => 
-              '{ recurseGetMap[tpe](${from.asTerm.select(f).asExprOf[tpe]}) }
-        else
-          from.asTerm.select(f).asExpr
-
-      val key = Expr(f.name)
-      '{ $map.put($key, $value) }
-    }
-  Expr.block(selects, '{ () })
+enum MyType {
+  case MyNumber, MyString
 }
+
+case class Column(name: String,mytype : MyType)
+
+case class Schema(schemaDef : List[Column])
+
+case class Table(name: String)(schema : Schema)
+
+trait Query {
+
+  def select(columns: String*): Query
+
+  def from(table: String): Query
+  def from(table: Table): Query
+  def from(f:(Schema) => Table): Query
+
+  def where(condition: String): Query
+  def where(condition: (Query) => Boolean): Query 
+  def orderBy(column: String, ascending: Boolean = true): Query
+
+  def limit(limit: Int): Query
+
+  def fetch(): Seq[Row]
+
+  def join(table: String, on: String): Query 
+}
+
+
+
+
+case class Row(columns: Map[String, Any]) {
+
+  def get(column: String): Any = columns(column)
+
+}
+
+class SqlDslImpl extends Query{
+override def select(columns: String*): Query = {
+    println(s"select $columns")
+    this
+  }
+  override def fetch(): Seq[Row] = {
+    ???
+  }
+  override def join(table: String, on: String): Query = {
+    ???
+  }
+  override def from(table: String): Query = {
+    println(s"from $table")
+    this
+  }
+
+  override def from(table: Table): Query = {
+    println(s"from $table")
+    this
+  }
+
+  override def from(f:(Schema) => Table): Query = {
+    println(s"from $f")
+    this
+  }
+  override def where(condition: String): Query = {
+    ???
+  }
+
+  override def where(condition: (Query) => Boolean): Query = {
+    ???
+  }
+
+  override def limit(limit: Int): Query = {
+    ???
+  }
+
+  override def orderBy(column: String, ascending: Boolean = true): Query = {
+    ???
+  }
+}
+
+object SqlDslImpl {
+
+  def apply(): Query = new SqlDslImpl()
+
+}
+
+
+
+
 
 def dslsql = {
-  import Util._
+    println("dsl sql")
+    val emp_schema = Schema(List(Column("Col1",MyType.MyNumber),Column("Col2",MyType.MyString)))
 
-  def useMacro() = {
-    val p = Person("Joe", "Bloggs", 123)
-    val map = mutable.Map[String, Any]()
-    PopulateMap.populateMap(p, map)
-    map.foreach(p => println(s"A ${p._1} -> ${p._2}"))
-  }
+    val employee = Table("Employee")
+    val employee_with_schema = Table("Employee")(emp_schema)
 
-  def useFunMacro() = {
-    val p = Person("Joe", "Bloggs", 123)
-    val map = PopulateMapFun.populateMap(p)
-    map.foreach(p => println(s"B ${p._1} -> ${p._2}"))
-    //println(map)
-  }
+    
+    val query = SqlDslImpl().
+    select("*")
+    .from("person")
+    .from(employee)
+    .from(employee_with_schema)
+    .join("address", "person_id = id")
+    .where("age > 18")
+    .where(x => 10 > 20)
 
-  def funB() = {
-    val p = Person("Joe", "Bloggs", 123)
+    query.fetch().foreach(row => println(row))
 
-    val map = mutable.Map[String, Any]()
-    map.put("firstName",  p.firstName)
-    map.put("lastName",  p.lastName)
-    map.put("age",  p.age)
-  }
-
-  def funA() = {
-    val p = Person("Joe", "Bloggs", 123)
-    val fields = reflectCaseClassFields(p)
-    val map = mutable.Map[String, Any]()
-    for (field <- fields)
-      map.put(field.getName,  field.invoke(p))
-  }
-
-
-  useMacro()
-  useFunMacro()
-
-  println("hello")
-  val r = myMacro("10+2")
-  println(r)
-  val px = power(10,2)
-  println(px)
 }
 
-
-
-
-
-
-
-
-  
