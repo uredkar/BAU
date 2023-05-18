@@ -1,0 +1,3 @@
+Symbol: object Ordering
+Error message: assertion failed: coursierapi.shaded.scala.math.Ordering$. already has a symbol
+Error: java.lang.AssertionError: assertion failed: coursierapi.shaded.scala.math.Ordering$. already has a symbol

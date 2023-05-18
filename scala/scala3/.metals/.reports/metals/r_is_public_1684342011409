@@ -1,0 +1,3 @@
+Symbol: object Stream
+Error message: assertion failed: coursierapi.shaded.scala.collection.package$. already has a symbol
+Error: java.lang.AssertionError: assertion failed: coursierapi.shaded.scala.collection.package$. already has a symbol

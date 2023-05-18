@@ -1,0 +1,3 @@
+Symbol: object MinimizedExclusions
+Error message: 
+Error: dotty.tools.dotc.core.CyclicReference: 

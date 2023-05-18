@@ -1,0 +1,3 @@
+Symbol: object Comment
+Error message: assertion failed: coursierapi.shaded.coursier.package$. already has a symbol
+Error: java.lang.AssertionError: assertion failed: coursierapi.shaded.coursier.package$. already has a symbol
