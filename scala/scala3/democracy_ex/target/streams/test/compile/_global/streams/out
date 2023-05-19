@@ -1,0 +1,10 @@
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E088] Syntax Error: C:\Users\unmes\Downloads\democracy\democracy\src\test\scala\democracy\MajorityJudgementSuite.scala:179:2 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m179 |[0m  test([31m"full scenario with a tie-break and the same grades for cooking and hiking"[0m) {[0m
+[0m[[0m[31merror[0m] [0m[0m    |  [31m^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |  Expected start of definition[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E040] Syntax Error: C:\Users\unmes\Downloads\democracy\democracy\src\test\scala\democracy\MajorityJudgementSuite.scala:223:0 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m223 |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[31m^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |unindent expected, but eof found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
