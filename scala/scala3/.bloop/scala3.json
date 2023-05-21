@@ -2,14 +2,14 @@
     "version": "1.4.0",
     "project": {
         "name": "scala3",
-        "directory": "C:\\sources\\bau\\scala\\scala3",
-        "workspaceDir": "C:\\sources\\bau\\scala\\scala3",
+        "directory": "C:\\sources\\BAU\\scala\\scala3",
+        "workspaceDir": "C:\\sources\\BAU\\scala\\scala3",
         "sources": [
-            "C:\\sources\\bau\\scala\\scala3\\src\\main\\scala",
-            "C:\\sources\\bau\\scala\\scala3\\src\\main\\scala-2.12",
-            "C:\\sources\\bau\\scala\\scala3\\src\\main\\scala-2",
-            "C:\\sources\\bau\\scala\\scala3\\src\\main\\java",
-            "C:\\sources\\bau\\scala\\scala3\\target\\scala-2.12\\src_managed\\main"
+            "C:\\sources\\BAU\\scala\\scala3\\src\\main\\scala",
+            "C:\\sources\\BAU\\scala\\scala3\\src\\main\\scala-2.12",
+            "C:\\sources\\BAU\\scala\\scala3\\src\\main\\scala-2",
+            "C:\\sources\\BAU\\scala\\scala3\\src\\main\\java",
+            "C:\\sources\\BAU\\scala\\scala3\\target\\scala-2.12\\src_managed\\main"
         ],
         "dependencies": [
             
@@ -17,11 +17,11 @@
         "classpath": [
             "C:\\Users\\unmes\\.sbt\\boot\\scala-2.12.13\\lib\\scala-library.jar"
         ],
-        "out": "C:\\sources\\bau\\scala\\scala3\\.bloop\\scala3",
-        "classesDir": "C:\\sources\\bau\\scala\\scala3\\.bloop\\scala3\\scala-2.12\\classes",
+        "out": "C:\\sources\\BAU\\scala\\scala3\\.bloop\\scala3",
+        "classesDir": "C:\\sources\\BAU\\scala\\scala3\\.bloop\\scala3\\scala-2.12\\classes",
         "resources": [
-            "C:\\sources\\bau\\scala\\scala3\\src\\main\\resources",
-            "C:\\sources\\bau\\scala\\scala3\\target\\scala-2.12\\resource_managed\\main"
+            "C:\\sources\\BAU\\scala\\scala3\\src\\main\\resources",
+            "C:\\sources\\BAU\\scala\\scala3\\target\\scala-2.12\\resource_managed\\main"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -101,7 +101,7 @@
             "config": {
                 "home": "C:\\Program Files\\Java\\jdk1.8.0_151\\jre",
                 "options": [
-                    "-Duser.dir=C:\\sources\\bau\\scala\\scala3"
+                    "-Duser.dir=C:\\sources\\BAU\\scala\\scala3"
                 ]
             },
             "mainClass": [

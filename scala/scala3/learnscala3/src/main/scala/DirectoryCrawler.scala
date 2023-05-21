@@ -11,7 +11,7 @@ import java.nio.file.attribute.PosixFilePermissions
 import scala.util.{Try, Success, Failure}
 import scala.util.CommandLineParser as CLP
 import scala.collection.mutable.Map
-import javax.activation.FileTypeMap
+//import javax.activation.FileTypeMap
 case class Config(
   dirname: String,
   filter: String

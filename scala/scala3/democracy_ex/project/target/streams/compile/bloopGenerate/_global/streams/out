@@ -1,4 +1,4 @@
-[0m[[0m[0mdebug[0m] [0m[0m[democracy-build] Classpath dependencies List()[0m
-[0m[[0m[0mdebug[0m] [0m[0m[democracy-build] Dependencies from configurations List()[0m
-[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'democracy-build' to 'C:\Users\unmes\Downloads\democracy\democracy\project\.bloop\democracy-build.json'[0m
-[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop\democracy-build.json[0m
+[0m[[0m[0mdebug[0m] [0m[0m[democracy_ex-build] Classpath dependencies List()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[democracy_ex-build] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'democracy_ex-build' to 'C:\sources\BAU\scala\scala3\democracy_ex\project\.bloop\democracy_ex-build.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop\democracy_ex-build.json[0m

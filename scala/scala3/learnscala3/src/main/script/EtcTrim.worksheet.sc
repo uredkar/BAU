@@ -7,6 +7,10 @@ def trimRight(str: String) = str.take(str.lastIndexWhere(!_.isWhitespace)+1)
 def trimRight2(str: String) = trimLeft(str.reverse).reverse
 def trim(str: String) = str.trim()
 
+
+
+
+
 trimLeft(">hello>  <wo<  <rld < <")
 trimRight("  <<s s s 1 xxx")
 trimRight2("  <<s s s 1 xxx")
@@ -45,10 +49,43 @@ def tenSq2 = 10 * 10
 tenSq2
 tenSq2
 
-
+print("Extension methods")
 case class Note():
-  def tone: Int = ??? 
-  def duration: Int = ???
+  def tone: Int = 200
+  def duration: Int = 10
+
+object Note:
+    extension (msg: Note)
+        def hello() = "hello" + msg.duration.toString()
+
+extension (msg: Note)
+    def hellohello(m: String) = "hello hello" + msg.duration.toString() + "mmm " + m
+
+val c = Note()
+val msg_ex = c.hello()
+println(s"msg_ex $msg_ex")
+
+val msg_2ex = c.hellohello("test0")
+println(s"msg_2ex $msg_2ex")
+val msg_3ex = hellohello(c)("test")
+println(s"msg_3ex $msg_3ex")
+
+
+
+object Lengths:
+  opaque type Meters = Double
+  def Meters(value: Double): Meters = value
+  extension (x: Meters)
+    def + (y: Meters): Meters = x + y
+    def show: String = s"$x m"
+
+def usage(): Unit =
+  import Lengths.*
+  val twoMeters: Meters = Meters(2.0)
+  val fourMeters: Meters = twoMeters + twoMeters
+  println(fourMeters.show)
+  println(show(fourMeters))
+
 
 sealed trait Shape
 case class Rectangle(width: Int, height:Int) extends Shape
@@ -206,6 +243,25 @@ val map: Map[String, Seq[String]] = Map(
   "key3" -> Seq("value3", "value4", "value5")
 )
 
+val map1: Map[String, Seq[String]] = Map(
+  "key1" -> Seq("value1", "value2", "value3"),
+  "key2" -> Seq("value4", "value5", "value6"),
+  "key3" -> Seq("value7", "value8", "value9")
+)
+println("------------------------------------------------------------")
+println("before reduce")
+println(map1)
+
+map1.keys.reduce((l,r) => l + r)
+
+val reduced = map1.values.reduce((l,r) => 
+                println(s"$l $r") 
+                (l) ++ (r)
+                )
+
+println("after reduce")                
+println(reduced)
+println("------------------------------------------------------------")
 val commonValues: Set[String] = map.values.reduce(_.diff(_)).toSet
 
 val filteredMap: Map[String, Seq[String]] = map.view.mapValues(_.filter(commonValues)).toMap
@@ -318,6 +374,8 @@ val ballotCarol = Ballot(
     cooking -> Grade.Good
     )
 )
+
+
 val ballots = Seq(ballotAlice, ballotBob, ballotCarol)
 val allGrades = ballots.flatMap(b => b.grades)
 println(allGrades)
@@ -373,23 +431,3 @@ def randomBallot(): Ballot =
 
 val voters = 50
 
-for
-    _       <- 1 to 10
-    ballots  = Seq.fill(voters)(randomBallot())
-    
-    //winner   = election.elect(ballots)
-    //loosers  = candidates.filter(_ != winner)
-do
-    //println(ballots)
-    val allGrades: Seq[(Candidate, Grade)] = ballots.flatMap(b => b.grades)
-    val gradesPerCandidate: Map[Candidate, Seq[Grade]] =
-      allGrades.groupMap(k => k._1)(v => v._2)
-    //if gradesPerCandidate.forall((candidate, grades) => grades.isEmpty) then
-    val candidatesSeq = gradesPerCandidate.keys.toSeq
-    val randomIndex   = util.Random.between(0, candidatesSeq.size)
-    println(s"randomIndex $randomIndex")  
-    val candidateMedians =
-    candidates.map { candidate =>
-        candidate -> median(ballots.map(_.grades(candidate)))
-    }.toMap
-    val highestMedian = candidateMedians.values.maxBy(_.ordinal)    

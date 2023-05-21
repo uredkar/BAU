@@ -1,0 +1,54 @@
+2023-05-20 08:05:56 database: flush
+org.h2.message.DbException: Out of memory. [90108-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:389)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:3254)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3775)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Out of memory. [90108-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 6 more
+Caused by: java.lang.OutOfMemoryError: Java heap space
+2023-05-20 08:06:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: Out of memory. [90108-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:1782)
+	at org.h2.engine.SessionLocal.beforeCommitOrRollback(SessionLocal.java:754)
+	at org.h2.engine.SessionLocal.commit(SessionLocal.java:668)
+	at org.h2.command.Command.stop(Command.java:157)
+	at org.h2.command.CommandContainer.stop(CommandContainer.java:259)
+	at org.h2.command.Command.executeQuery(Command.java:229)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:128)
+	at scala.meta.internal.metals.JdbcEnrichments$XtensionConnection.query(JdbcEnrichments.scala:37)
+	at scala.meta.internal.metals.DismissedNotifications$Notification.isDismissed(DismissedNotifications.scala:64)
+	at scala.meta.internal.metals.doctor.Doctor.check(Doctor.scala:173)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$connectToNewBuildServer$3(MetalsLspService.scala:2540)
+	at scala.meta.internal.metals.Indexer.$anonfun$indexWorkspace$13(Indexer.scala:307)
+	at scala.meta.internal.metals.TimerProvider.timedThunk(TimerProvider.scala:25)
+	at scala.meta.internal.metals.Indexer.indexWorkspace(Indexer.scala:306)
+	at scala.meta.internal.metals.Indexer.$anonfun$profiledIndexWorkspace$2(Indexer.scala:147)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.meta.internal.metals.TimerProvider.timedThunk(TimerProvider.scala:25)
+	at scala.meta.internal.metals.Indexer.$anonfun$profiledIndexWorkspace$1(Indexer.scala:147)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:678)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.message.DbException: Out of memory. [90108-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:389)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.writeInBackground(MVStore.java:3254)
+	at org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3775)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Out of memory. [90108-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 6 more
+Caused by: java.lang.OutOfMemoryError: Java heap space
