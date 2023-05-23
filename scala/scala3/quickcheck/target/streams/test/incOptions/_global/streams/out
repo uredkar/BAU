@@ -1,0 +1,2 @@
+[debug] Created transactional ClassFileManager with tempDir = C:\Users\unmes\Downloads\effective-quickcheck\quickcheck\target\scala-3.1.0\test-classes.bak
+[debug] Removing the temporary directory used for backing up class files: C:\Users\unmes\Downloads\effective-quickcheck\quickcheck\target\scala-3.1.0\test-classes.bak
