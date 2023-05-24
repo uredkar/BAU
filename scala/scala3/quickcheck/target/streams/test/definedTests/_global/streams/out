@@ -1,2 +1,0 @@
-[debug] Subclass fingerprints: List((org.scalacheck.Properties,false,org.scalacheck.ScalaCheckFramework$$anon$1@5d406b59), (org.scalacheck.Prop,false,org.scalacheck.ScalaCheckFramework$$anon$1@5e8c84a), (org.scalacheck.Properties,true,org.scalacheck.ScalaCheckFramework$$anon$1@ed0f217), (org.scalacheck.Prop,true,org.scalacheck.ScalaCheckFramework$$anon$1@515370b3), (munit.Suite,false,CustomFingerprint{suite='munit.Suite'}), (munit.Suite,true,munit.Framework$$anon$1@f17d363))
-[debug] Annotation fingerprints: List()

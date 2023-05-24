@@ -1,6 +1,0 @@
-[error] -- Error: C:\Users\unmes\Downloads\effective-quickcheck\quickcheck\src\main\scala\quickcheck\HeapProperties.scala:197:5 
-[error] 197 |    }
-[error]     |     ^
-[error]     |no implicit argument of type Unit => org.scalacheck.Prop was found for parameter p of method forAll in object Prop
-[error] one error found
-[error] one error found
