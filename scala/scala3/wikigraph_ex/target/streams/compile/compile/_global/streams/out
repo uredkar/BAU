@@ -1,0 +1,8 @@
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: C:\Users\unmes\Downloads\wikigraph\wikigraph\src\main\scala\wikigraph\Wikigraph.scala:163:52 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m163 |[0m        (fromid, toid) <- client.searchId(from).zip.client.searchId(to)[0m
+[0m[[0m[31merror[0m] [0m[0m    |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value client is not a member of wikigraph.WikiResult[Any] => [0m
+[0m[[0m[31merror[0m] [0m[0m    |  wikigraph.WikiResult[(wikigraph.Articles.ArticleId, Any)] - did you mean wikigraph.WikiResult[Any] => [0m
+[0m[[0m[31merror[0m] [0m[0m    |  wikigraph.WikiResult[(wikigraph.Articles.ArticleId, Any)].clone?[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
