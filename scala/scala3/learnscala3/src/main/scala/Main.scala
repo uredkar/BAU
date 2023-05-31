@@ -28,7 +28,8 @@ def Main(args: String*): Unit =
   //csv.parse
   //doubleHash.double_hashing
   ///srk.MainSpark.run
-  dslsql.dslsql
+  //dslsql.dslsql
+  main_akka
 }  
 
 def msg = "I was compiled by Scala 3. :)"

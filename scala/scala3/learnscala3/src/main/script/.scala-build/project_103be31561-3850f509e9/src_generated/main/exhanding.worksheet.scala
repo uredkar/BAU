@@ -38,6 +38,17 @@ val invalidInt: Validated[Int] = Left(Seq("Out of range ","Format not valid"))
 
 validInt.map(n => n*2)
 
+def validateBoth[A,B](validatedA: Validated[A],validatedB: Validated[A]): Validated[(A,B)] = 
+    ???
+
+def validateEach[A,B](as: Seq[A])(validate: A => Validated[B]): Validated[Seq[B]] = 
+    /*as.foldLeft[Validated[Seq[B]]](Right(Vector.empty[B])) {
+       (vxs,a)  =>
+            val validatedB: Validated[B] = validate(a)
+            validateBoth(vxs,validatedB).map((bs,b) => bs :+ b)
+    }*/
+    ???
+
 // this reports either valid int or a list of errors
 def processInput_2(input: List[String]):  List[scala.util.Try[Either[(String,String), Int]]] = {
 
@@ -98,7 +109,16 @@ val r1 = processInput(input)
 println(s"single $r1")
 
 val r2 = processInput_2(input)
-println(r2)/*</script>*/ /*<generated>*/
+println(r2)
+
+
+//val tryInt: Try[Int] = Failure(":sadface:")
+val eitherInt = Left(Throwable(":sadface:"))
+
+val confused: Try[Throwable] = Try(Throwable("Am I a success ?"))
+
+
+val eitherInt2: Either[String, Int] = Left(":sadface:")/*</script>*/ /*<generated>*/
 /*</generated>*/
 }
 

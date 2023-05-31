@@ -16,7 +16,9 @@ lazy val root = project
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.11" % Test,
     libraryDependencies += "commons-io" % "commons-io" % "2.11.0",
-    libraryDependencies += "org.scala-lang" %% "scala3-tasty-inspector" % scalaVersion.value
+    libraryDependencies += "org.scala-lang" %% "scala3-tasty-inspector" % scalaVersion.value,
+    libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.8.2"
+
   )
 
 
