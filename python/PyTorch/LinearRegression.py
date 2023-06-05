@@ -12,21 +12,9 @@ from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.utils import shuffle
 
-# Load the diabetes dataset
-diabetes_X, diabetes_y = datasets.load_diabetes(return_X_y=True)
 
-# Use only one feature
-diabetes_X = diabetes_X[:, np.newaxis, 2]
 
-# Split the data into training/testing sets
-diabetes_X_train = diabetes_X[:-20]
-diabetes_X_test = diabetes_X[-20:]
-
-# Split the targets into training/testing sets
-diabetes_y_train = diabetes_y[:-20]
-diabetes_y_test = diabetes_y[-20:]
-
-def sck_learn():
+def sklearn_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test):
     # Create linear regression object
     regr = linear_model.LinearRegression()
 
@@ -59,50 +47,70 @@ class LR(nn.Module):
     def forward(self,x):
         return self.linear(x)
     
-sck_learn()
 
-diabetes_X_train = torch.Tensor(diabetes_X_train)
-diabetes_X_test = torch.Tensor(diabetes_X_test)
+def torch_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test):
+    diabetes_X_train = torch.Tensor(diabetes_X_train)
+    diabetes_X_test = torch.Tensor(diabetes_X_test)
 
-# Split the targets into training/testing sets
-diabetes_y_train = torch.Tensor(diabetes_y_train)
-diabetes_y_test = torch.Tensor(diabetes_y_test)
-rate_learning = 1e-2
-model = LR()
-optimizer = optim.Adam(model.parameters(), lr=rate_learning)
-#optimizer = optim.SGD(model.parameters(),lr=rate_learning)
-criterion = nn.MSELoss()
-n_epoch = 100000
-print_every = n_epoch/10
-for epoch in range(n_epoch):
-    diabetes_X_train, diabetes_y_train = shuffle(diabetes_X_train, diabetes_y_train)
-    hyp = model(diabetes_X_train)
-    #print(hyp)
-    #cost = F.mse_loss(hyp,diabetes_y_train)
-    #print(hyp.shape,diabetes_y_train.shape)
-    cost = criterion(hyp.squeeze(1), diabetes_y_train)
-    #print(cost)
-    optimizer.zero_grad()
-    cost.backward()
-    optimizer.step()
-    if epoch % print_every == 0:
-        params = list(model.parameters())
-        W = params[0].item()
-        b = params[1].item()
-        print(f"Epoch {epoch:4d} W: {W:.3f}, b: {b:.3f} cost: {cost:.6f}")
+    # Split the targets into training/testing sets
+    diabetes_y_train = torch.Tensor(diabetes_y_train)
+    diabetes_y_test = torch.Tensor(diabetes_y_test)
+    rate_learning = 1e-2
+    model = LR()
+    optimizer = optim.Adam(model.parameters(), lr=rate_learning)
+    #optimizer = optim.SGD(model.parameters(),lr=rate_learning)
+    criterion = nn.MSELoss()
+    n_epoch = 100000
+    print_every = n_epoch/10
+    for epoch in range(n_epoch):
+        diabetes_X_train, diabetes_y_train = shuffle(diabetes_X_train, diabetes_y_train)
+        hyp = model(diabetes_X_train)
+        #print(hyp)
+        #cost = F.mse_loss(hyp,diabetes_y_train)
+        #print(hyp.shape,diabetes_y_train.shape)
+        cost = criterion(hyp.squeeze(1), diabetes_y_train)
+        #print(cost)
+        optimizer.zero_grad()
+        cost.backward()
+        optimizer.step()
+        if epoch % print_every == 0:
+            params = list(model.parameters())
+            W = params[0].item()
+            b = params[1].item()
+            print(f"Epoch {epoch:4d} W: {W:.3f}, b: {b:.3f} cost: {cost:.6f}")
 
 
-params = list(model.parameters())
-W = params[0].item()
-b = params[1].item()
+    params = list(model.parameters())
+    W = params[0].item()
+    b = params[1].item()
 
-print(f"Final {epoch:4d} W: {W:.3f}, b: {b:.3f} cost: {cost:.6f}")
-diabetes_y_pred = W * diabetes_X_test + b
+    print(f"Final {epoch:4d} W: {W:.3f}, b: {b:.3f} cost: {cost:.6f}")
+    diabetes_y_pred = W * diabetes_X_test + b
 
-#plt.scatter(diabetes_X_test, diabetes_y_test, color="black")
-plt.plot(diabetes_X_test, diabetes_y_pred, color="green", linewidth=3)
+    #plt.scatter(diabetes_X_test, diabetes_y_test, color="black")
+    plt.plot(diabetes_X_test, diabetes_y_pred, color="green", linewidth=3)
 
-plt.xticks(())
-plt.yticks(())
+    plt.xticks(())
+    plt.yticks(())
 
-plt.show()
+    plt.show()
+
+def loadData():
+    # Load the diabetes dataset
+    diabetes_X, diabetes_y = datasets.load_diabetes(return_X_y=True)
+
+    # Use only one feature
+    diabetes_X = diabetes_X[:, np.newaxis, 2]
+
+    # Split the data into training/testing sets
+    diabetes_X_train = diabetes_X[:-20]
+    diabetes_X_test = diabetes_X[-20:]
+
+    # Split the targets into training/testing sets
+    diabetes_y_train = diabetes_y[:-20]
+    diabetes_y_test = diabetes_y[-20:]
+    return diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test
+
+diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test = loadData()
+sklearn_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test)
+torch_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test)
