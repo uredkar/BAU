@@ -12,7 +12,7 @@ from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.utils import shuffle
 
-
+from MyModels import LinearRegression 
 
 def sklearn_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test):
     # Create linear regression object
@@ -40,12 +40,7 @@ def sklearn_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabete
 
     #plt.show()
 
-class LR(nn.Module):
-    def __init__(self):
-        super(LR,self).__init__()
-        self.linear = nn.Linear(1,1)
-    def forward(self,x):
-        return self.linear(x)
+
     
 
 def torch_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_y_test):
@@ -56,7 +51,7 @@ def torch_regression(diabetes_X_train,diabetes_X_test,diabetes_y_train,diabetes_
     diabetes_y_train = torch.Tensor(diabetes_y_train)
     diabetes_y_test = torch.Tensor(diabetes_y_test)
     rate_learning = 1e-2
-    model = LR()
+    model = LinearRegression(1,1)
     optimizer = optim.Adam(model.parameters(), lr=rate_learning)
     #optimizer = optim.SGD(model.parameters(),lr=rate_learning)
     criterion = nn.MSELoss()

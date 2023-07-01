@@ -1,13 +1,13 @@
-Adj CloseVTV,0.0
-Adj CloseVB,0.0
-Adj CloseVTI,0.0
-Adj CloseSPY,0.0
-Adj CloseVUG,0.36443
-Adj CloseVXF,0.0
-Adj CloseVXUS,0.0
-Adj CloseVGK,0.0
-Adj CloseVDE,0.0
-Adj CloseVWO,0.0
-Adj CloseVTIP,0.0
-Adj CloseBND,0.63557
-Adj CloseBNDX,0.0
+VTV,0.0
+VB,0.0
+VTI,0.0
+SPY,0.0
+VUG,1.0
+VXF,0.0
+VXUS,0.0
+VGK,0.0
+VDE,0.0
+VWO,0.0
+VTIP,0.0
+BND,0.0
+BNDX,0.0
