@@ -1,0 +1,84 @@
+{
+    "One": {
+        "type": "engine",
+        "name": "One"
+    },
+    "Two": {
+        "type": "engine",
+        "name": "Two"
+    },
+    "MAIN": {
+        "type": "task",
+        "name": "MAIN",
+        "engine": "One",
+        "sleep": 10,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": [
+            "B",
+            "C"
+        ]
+    },
+    "B": {
+        "type": "task",
+        "name": "B",
+        "engine": "Two",
+        "sleep": 40,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": [
+            "D",
+            "E"
+        ]
+    },
+    "C": {
+        "type": "task",
+        "name": "C",
+        "engine": "One",
+        "sleep": 10,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": [
+            "F"
+        ]
+    },
+    "D": {
+        "type": "task",
+        "name": "D",
+        "engine": "One",
+        "sleep": 10,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": []
+    },
+    "E": {
+        "type": "task",
+        "name": "E",
+        "engine": "One",
+        "sleep": 10,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": []
+    },
+    "F": {
+        "type": "task",
+        "name": "F",
+        "engine": "One",
+        "sleep": 10,
+        "status": {
+            "type": "status",
+            "value": 3
+        },
+        "children": []
+    }
+}
